@@ -3,11 +3,13 @@ function deploy_config
     set dotfiles_dir (dirname $script_dir)
 
     mkdir -p ~/.config
+    mkdir -p ~/.themes
     cp -R $dotfiles_dir/hypr/. ~/.config/hypr
     cp -R $dotfiles_dir/rofi ~/.config/rofi
     cp -R $dotfiles_dir/swaync ~/.config/swaync
     cp -R $dotfiles_dir/waybar ~/.config/waybar
     cp -R $dotfiles_dir/OpenRGB ~/.config/OpenRGB
+    cp -R $dotfiles_dir/themes/. ~/.themes
 
     cp $dotfiles_dir/apps/OpenRGB.AppImage ~/OpenRGB.AppImage
     chmod +x ~/OpenRGB.AppImage

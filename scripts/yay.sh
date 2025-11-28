@@ -3,18 +3,19 @@ source (dirname (status --current-filename))/_.sh
 
 function install_yay
     yay -S --needed --noconfirm \
-        dualsensectl \
         hyprshade \
         hyprlock \
         hyprpaper \
+        hyprshot \
         greetd-regreet-git \
         visual-studio-code-bin \
         cursor-bin \
-        hyprshot \
-        themix-full-git \
         1password \
+        dualsensectl \
         razer-cli \
-        polychromatic; or begin
+        polychromatic \
+        kora-icon-theme \
+        themix-full-git; or begin
         print_error "[yay] can't install packages."
         exit 1
     end

@@ -62,7 +62,7 @@
         "format-disabled": "<span color='#FFE08F'> </span>",
         "tooltip": false,
         "interval": 1,
-        "on-click": "alacritty -e nmtui"
+        "on-click": "nm-connection-editor"
     },
     "pulseaudio": {
         "format": "<span color='#BF1A1A'>{icon}</span> {volume:03d}",
