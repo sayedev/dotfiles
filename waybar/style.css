@@ -1,0 +1,80 @@
+/* GLOBAL */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  border: none;
+}
+
+#waybar {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* SECTIONS BACKGROUNDS */
+#tray,
+#taskbar,
+#custom-power,
+#custom-notification,
+#pulseaudio,
+#bluetooth,
+#network,
+#memory,
+#workspaces,
+#clock,
+#temperature,
+#language,
+#custom-power {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 0;
+  border-radius: 15px;
+  padding: 4px 12px;
+  margin-top: 3px;
+  margin-bottom: 0;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#taskbar:hover,
+#tray:hover,
+#custom-power:hover,
+#custom-notification:hover,
+#pulseaudio:hover,
+#bluetooth:hover,
+#network:hover,
+#memory:hover,
+#clock:hover,
+#temperature:hover,
+#language:hover,
+#custom-power:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* WORKSPACES */
+#taskbar button,
+#workspaces button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 4px 12px;
+  margin: 0 4px;
+}
+
+#taskbar.empty{
+  background: transparent;
+}
+
+#taskbar button:hover,
+#workspaces button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#workspaces button.active {
+  background: #BF1A1A;
+}
+
+#taskbar button.active {
+  border-bottom: 3px solid #BF1A1A;
+}

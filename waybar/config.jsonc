@@ -1,0 +1,118 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "padding": 50,
+    "modules-left": [
+        "tray",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "wlr/taskbar",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "memory",
+        "hyprland/language",
+        "custom/power"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "DP-2": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "HDMI-A-1": [
+                5,
+                6,
+                7,
+                8
+            ]
+        }
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "<span color='#BF1A1A' size='21pt'> </span>",
+        "format-ar": "<span color='#BF1A1A' size='21pt'>󱌨</span>"
+    },
+    "custom/power": {
+        "format": "<span color='#BF1A1A' size='21pt'>󰐥</span>",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown -P now",
+            "reboot": "reboot",
+            "lock": "hyprlock"
+        }
+    },
+    "network": {
+        "format-ethernet": "<span color='#BF1A1A'>󰴽 </span>Ethernet",
+        "format-wifi": "<span color='#BF1A1A'>󰤨 </span>{essid}",
+        "format-linked": "<span color='#FFE08F'>󱘖 </span>{essid}",
+        "format-disconnected": "<span color='#FFE08F'> </span>",
+        "format-disabled": "<span color='#FFE08F'> </span>",
+        "tooltip": false,
+        "interval": 1,
+        "on-click": "alacritty -e nmtui"
+    },
+    "pulseaudio": {
+        "format": "<span color='#BF1A1A'>{icon}</span> {volume:03d}",
+        "format-muted": "<span color='#FFE08F'>󰸈</span> 000",
+        "format-icons": {
+            "default": [
+                "<span color='#BF1A1A'></span>",
+                "<span color='#BF1A1A'></span>",
+                "<span color='#BF1A1A'></span>"
+            ]
+        },
+        "on-click": "pavucontrol -t 3",
+        "on-click-middle": "pactl -- set-sink-mute 0 toggle"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "all-outputs": false,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    "bluetooth": {
+        "format": "<span color='#BF1A1A'></span>",
+        "format-connected": "<span color='#BF1A1A'></span> {num_connections}",
+        "format-off": "<span color='#FFE08F'>󰂲 </span>...",
+        "format-disabled": "<span color='#FFE08F'>󰂲 </span>...",
+        "format-connected-battery": "<span color='#BF1A1A'>  </span>{device_alias}::{device_battery_percentage}%",
+        "tooltip-format": "",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
+        "on-click": "blueberry",
+        "on-click-right": "notify-send 'PS5 Controller' \"$(dualsensectl battery)\" --icon=/usr/share/icons/breeze-dark/status/32/battery-good.svg"
+    },
+    "memory": {
+        "format": "<span color='#BF1A1A'> </span> {used}G",
+        "tooltip": true,
+        "tooltip-format": "󰑹 {total} # {used}\n󰌽 {swapTotal} # {swapUsed}"
+    },
+    "clock": {
+        "interval": 1,
+        "timezone": "Africa/Cairo",
+        "format": "<span color='#BF1A1A'> </span>{:%I:%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%d - %m - %Y (%A)}",
+        "on-click": "swaync-client -t -sw"
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 15
+    }
+}

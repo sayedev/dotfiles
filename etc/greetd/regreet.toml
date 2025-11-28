@@ -1,0 +1,14 @@
+[background]
+# Path to the background image
+path = "/usr/share/wallpapers/red-j.jpg"
+
+[GTK]
+application_prefer_dark_theme = true
+font_name = "hacks"
+
+[appearance]
+greeting_msg = ""
+
+[commands]
+reboot = [ "systemctl", "reboot" ]
+poweroff = [ "systemctl", "poweroff" ]
