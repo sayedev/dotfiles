@@ -95,8 +95,7 @@
         "tooltip-format-connected": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-        "on-click": "blueberry",
-        "on-click-right": "notify-send 'PS5 Controller' \"$(dualsensectl battery)\" --icon=/usr/share/icons/breeze-dark/status/32/battery-good.svg"
+        "on-click": "blueberry"
     },
     "memory": {
         "format": "<span color='#BF1A1A'> </span> {used}G",

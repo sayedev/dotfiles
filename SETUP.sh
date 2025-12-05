@@ -17,7 +17,6 @@ source (dirname (status --current-filename))/scripts/cleanup.sh
 source (dirname (status --current-filename))/scripts/waterfox.sh
 source (dirname (status --current-filename))/scripts/move_files.sh
 source (dirname (status --current-filename))/scripts/rgb.sh
-source (dirname (status --current-filename))/scripts/set_default.sh
 source (dirname (status --current-filename))/scripts/fish.sh
 source (dirname (status --current-filename))/scripts/remove.sh
 source (dirname (status --current-filename))/scripts/systemctl.sh
@@ -65,12 +64,6 @@ install_rgb
 print_header "CONFIGURING FISH SHELL"
 ###############################################################################
 customize_fish
-
-
-###############################################################################
-print_header "APPLYING DEFAULT APPLICATIONS"
-###############################################################################
-apply_default_applications
 
 
 ###############################################################################

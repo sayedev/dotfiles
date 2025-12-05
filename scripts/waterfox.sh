@@ -43,16 +43,25 @@ function install_waterfox
         'Categories=GNOME;GTK;Network;WebBrowser;' \
         'MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;' \
         'StartupNotify=true' \
-        'Actions=new-window;new-private-window;' \
-        '' \
-        '[Desktop Action new-window]' \
-        'Name=Open a New Window' \
-        'Exec=/opt/waterfox/waterfox -new-window' \
-        '' \
-        '[Desktop Action new-private-window]' \
-        'Name=Open a New Private Window' \
-        'Exec=/opt/waterfox/waterfox -private-window' \
         | sudo tee /usr/share/applications/waterfox.desktop > /dev/null
+
+    printf '%s\n' \
+        '[Desktop Entry]' \
+        'Version=1.0' \
+        'Name=WaterFox (Private)' \
+        'Comment=Browse the World Wide Web in Private Mode' \
+        'GenericName=Web Browser' \
+        'Keywords=Internet;WWW;Browser;Web;Explorer;Private;Incognito' \
+        'Exec=/opt/waterfox/waterfox -private-window %u' \
+        'Terminal=false' \
+        'X-MultipleArgs=false' \
+        'Type=Application' \
+        'Icon=/opt/waterfox/browser/chrome/icons/default/default128.png' \
+        'Categories=GNOME;GTK;Network;WebBrowser;' \
+        'MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;' \
+        'StartupNotify=true' \
+        'NoDisplay=false' \
+        | sudo tee /usr/share/applications/waterfox-private.desktop > /dev/null
 
     rm -f $waterfox_file
 end

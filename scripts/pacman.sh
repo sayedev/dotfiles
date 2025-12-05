@@ -25,7 +25,14 @@ function install_pacman
         xarchiver \
         alacritty \
         nwg-look \
-        vlc; or begin
+        rocm-smi-lib \
+        hyprlock \
+        hyprpaper \
+        hyprpolkitagent \
+        obs-studio \
+        network-manager-applet \
+        qt6ct \
+        mpv; or begin
         print_error "[pacman] can't install packages."
         exit 1
     end
