@@ -26,6 +26,7 @@
 #clock,
 #temperature,
 #language,
+#privacy,
 #custom-power {
   background-color: rgba(0, 0, 0, 0.75);
   border: 0;
@@ -35,6 +36,10 @@
   margin-bottom: 0;
   margin-left: 3px;
   margin-right: 3px;
+}
+
+#privacy {
+  background-color: transparent;
 }
 
 #taskbar:hover,
@@ -62,7 +67,7 @@
   margin: 0 4px;
 }
 
-#taskbar.empty{
+#taskbar.empty {
   background: transparent;
 }
 
@@ -71,10 +76,66 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+
+/* PRIVACY */
+#privacy {
+  /* Keep the module bubble consistent, but tighten inner spacing */
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#privacy-item {
+  background-color: #FFFFFF;
+  /* white background */
+  color: #BF1A1A;
+  /* red icon/text */
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+/* Force all privacy types to the alert red for consistency */
+#privacy-item.screenshare,
+#privacy-item.audio-in,
+#privacy-item.audio-out {
+  background-color: #FFFFFF;
+  color: #BF1A1A;
+}
+
+/* Ensure symbolic icons inside the privacy badge inherit red color */
+#privacy-item image,
+#privacy-item .icon,
+#privacy-item * {
+  color: #BF1A1A;
+}
+
+
 #workspaces button.active {
   background: #BF1A1A;
 }
 
 #taskbar button.active {
   border-bottom: 3px solid #BF1A1A;
+}
+
+/* TOOLTIPS */
+tooltip {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid #BF1A1A;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+tooltip label {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+/* CLOCK CALENDAR */
+#clock tooltip {
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid #BF1A1A;
+  border-radius: 12px;
+  padding: 12px;
 }

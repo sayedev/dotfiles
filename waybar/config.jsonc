@@ -18,11 +18,16 @@
         "network",
         "memory",
         "hyprland/language",
-        "custom/power"
+        "custom/power",
+        "privacy"
     ],
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
+        "disable-scroll": true,
+        "active-only": false,
+        "all-outputs": false,
+        "show-special": true,
         "persistent-workspaces": {
             "DP-2": [
                 1,
@@ -37,6 +42,24 @@
                 8
             ]
         }
+    },
+    "privacy": {
+        "icon-spacing": 12,
+        "icon-size": 21,
+        "transition-duration": 200,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ],
+        "ignore-monitor": true
     },
     "hyprland/language": {
         "format": "{}",
@@ -103,12 +126,28 @@
         "tooltip-format": "󰑹 {total} # {used}\n󰌽 {swapTotal} # {swapUsed}"
     },
     "clock": {
-        "interval": 1,
+        "interval": 30,
         "timezone": "Africa/Cairo",
         "format": "<span color='#BF1A1A'> </span>{:%I:%M}",
         "tooltip": true,
-        "tooltip-format": "{:%d - %m - %Y (%A)}",
-        "on-click": "swaync-client -t -sw"
+        "tooltip-format": "<tt><span font='JetBrainsMono Nerd Font' size='9pt'>{calendar}</span></tt>",
+        "on-click": "swaync-client -t -sw",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 4,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#BF1A1A'><b>{}</b></span>",
+                "days": "<span color='#FFFFFF'><b>{}</b></span>",
+                "weekdays": "<span color='#BF1A1A'><b>{}</b></span>",
+                "today": "<span color='#BF1A1A' background='#FFFFFF'><b><u> {} </u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
     "tray": {
         "icon-size": 24,

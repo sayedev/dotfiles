@@ -29,9 +29,12 @@ function install_pacman
         hyprlock \
         hyprpaper \
         hyprpolkitagent \
+        hyprpicker \
         obs-studio \
         network-manager-applet \
         qt6ct \
+        gnome-keyring \
+        libsecret \
         mpv; or begin
         print_error "[pacman] can't install packages."
         exit 1
