@@ -9,6 +9,7 @@ function install_yay
         greetd-regreet-git \
         1password \
         cursor-bin \
+        brave-bin \
         visual-studio-code-bin \
         razer-cli \
         polychromatic \

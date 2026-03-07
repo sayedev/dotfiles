@@ -14,7 +14,6 @@ source (dirname (status --current-filename))/scripts/_.sh
 source (dirname (status --current-filename))/scripts/pacman.sh
 source (dirname (status --current-filename))/scripts/yay.sh
 source (dirname (status --current-filename))/scripts/cleanup.sh
-source (dirname (status --current-filename))/scripts/waterfox.sh
 source (dirname (status --current-filename))/scripts/move_files.sh
 source (dirname (status --current-filename))/scripts/rgb.sh
 source (dirname (status --current-filename))/scripts/fish.sh
@@ -40,12 +39,6 @@ install_pacman
 print_header "INSTALLING AUR PACKAGES"
 ###############################################################################
 install_yay
-
-
-###############################################################################
-print_header "INSTALLING WATERFOX"
-###############################################################################
-install_waterfox
 
 
 ###############################################################################
