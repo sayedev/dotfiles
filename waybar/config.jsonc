@@ -84,8 +84,7 @@
         "exec": "~/.config/waybar/vpn-status.sh",
         "return-type": "json",
         "interval": 5,
-        "tooltip": true,
-        "on-click": "protonvpn status"
+        "tooltip": true
     },
     "network#ethernet": {
         "interface": "enp*",

@@ -12,7 +12,8 @@ function install_yay
         brave-bin \
         visual-studio-code-bin \
         razer-cli \
-        polychromatic \
+        waterfox-bin \
+        librewolf-bin \
         kora-icon-theme \
         selectdefaultapplication-fork-git \
         themix-full-git; or begin

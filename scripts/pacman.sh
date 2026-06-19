@@ -21,7 +21,7 @@ function install_pacman
         qemu virt-manager libvirt \
         thunar tumbler thunar-volman gvfs \
         signal-desktop \
-        discord \
+        proton-vpn-gtk-app \
         xarchiver \
         alacritty \
         nwg-look \

@@ -11,13 +11,23 @@ function deploy_config
     cp -R $dotfiles_dir/OpenRGB ~/.config/OpenRGB
     cp -R $dotfiles_dir/themes/. ~/.themes
 
-    cp $dotfiles_dir/apps/OpenRGB.AppImage ~/OpenRGB.AppImage
-    chmod +x ~/OpenRGB.AppImage
+    cp $dotfiles_dir/apps/OpenRGB.AppImage $HOME/OpenRGB.AppImage
+    chmod +x $HOME/OpenRGB.AppImage
+    rm -rf $HOME/OpenRGB $HOME/squashfs-root
+    pushd $HOME
+    ./OpenRGB.AppImage --appimage-extract >/dev/null
+    popd
+    mv $HOME/squashfs-root $HOME/OpenRGB
+    rm $HOME/OpenRGB.AppImage
 
     mkdir -p ~/.icons
     cp -R $dotfiles_dir/cursors/Bibata-Modern-Ice ~/.icons/
 
     sudo cp -R $dotfiles_dir/etc/greetd/. /etc/greetd
+
+    sudo mkdir -p /etc/udev/rules.d
+    sudo cp $dotfiles_dir/etc/udev/rules.d/72-ds4tm.rules /etc/udev/rules.d/
+
     sudo mkdir -p /usr/share/wallpapers
     sudo cp $dotfiles_dir/hypr/wallpapers/red-j.jpg /usr/share/wallpapers/
 end

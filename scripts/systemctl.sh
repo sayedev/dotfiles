@@ -7,7 +7,7 @@ function setup_services
     sudo gpasswd -a $USER plugdev
     sudo gpasswd -a $USER libvirt
     sudo gpasswd -a $USER docker
-    sudo gpasswd -a $USER openrazer
+    sudo gpasswd -a $USER openrazer 2>/dev/null; or true
     sudo systemctl enable libvirtd
     sudo systemctl enable docker
     sudo systemctl disable sddm 2>/dev/null
