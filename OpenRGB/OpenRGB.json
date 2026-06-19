@@ -5,10 +5,10 @@
         "enabled": false,
         "host": "0.0.0.0",
         "port": "6742",
-        "profile": "",
+        "profile": "Death",
         "setclient": false,
         "setcustom": false,
-        "setminimized": false,
+        "setminimized": true,
         "setprofile": false,
         "setserver": false,
         "setserverhost": false,
@@ -90,6 +90,7 @@
             "ASUS ROG Keris Wireless Bluetooth": false,
             "ASUS ROG Keris Wireless USB": false,
             "ASUS ROG MATRIX PLATINUM GeForce RTX 4090": false,
+            "ASUS ROG MATRIX PLATINUM GeForce RTX 5090": false,
             "ASUS ROG PG32UQ": false,
             "ASUS ROG Poseidon GeForce GTX 1080 Ti": false,
             "ASUS ROG Pugio": false,
@@ -339,6 +340,8 @@
             "ASUS TUF 3060 O12G V2 GAMING": false,
             "ASUS TUF Gaming K1": false,
             "ASUS TUF Gaming K3": false,
+            "ASUS TUF Gaming K3 GEN II": false,
+            "ASUS TUF Gaming K3 GEN II MIKU EDITION": false,
             "ASUS TUF Gaming K5": false,
             "ASUS TUF Gaming K7": false,
             "ASUS TUF Gaming M3": false,
@@ -432,7 +435,7 @@
             "Acer Predator Gaming Mouse (Rival 300)": false,
             "Advanced GTA 250 USB Gaming Mouse": false,
             "Airgoo AG-DRGB04": false,
-            "Airgoo AG-DRGB16": false,
+            "Airgoo AG-DRGB16": true,
             "Alienware AW3225QF": false,
             "Alienware AW3423DWF": false,
             "Alienware AW410K": false,
@@ -838,6 +841,8 @@
             "Everest GT-100 RGB": false,
             "FanBus": false,
             "Faustus": false,
+            "Fnatic Streak": false,
+            "Fnatic miniStreak": false,
             "GALAX GeForce RTX 2070 SUPER EX Gamer Black": false,
             "GALAX GeForce RTX 3080 SG": false,
             "GALAX GeForce RTX 5070 Ti EX Gamer 1-Click OC": false,
@@ -1131,6 +1136,7 @@
             "Gigabyte RTX4080 Eagle OC 16G": false,
             "Gigabyte RTX4080 Gaming OC 16G": false,
             "Gigabyte RTX4090 GAMING OC 24G": false,
+            "Gigabyte Radeon RX 6900 XT GAMING OC": false,
             "Gigabyte Radeon RX 7600 GAMING OC 8G": false,
             "Gigabyte Radeon RX 7600 XT GAMING OC 16G": false,
             "Gigabyte Radeon RX 7700 XT GAMING OC": false,
@@ -1142,6 +1148,7 @@
             "Gigabyte Radeon RX 9070 XT GAMING OC": false,
             "Glorious Model D / D-": false,
             "Glorious Model D / D- Wireless": false,
+            "Glorious Model I": false,
             "Glorious Model O / O-": false,
             "Glorious Model O / O- Wireless": false,
             "Govee": false,
@@ -1221,6 +1228,7 @@
             "Lenovo Legion 7S Gen 5": false,
             "Lenovo Legion 7S Gen 6": false,
             "Lenovo Legion 7S Gen 7": false,
+            "Lenovo Legion 7S Gen 8": false,
             "Lenovo Legion 7S gen 5": false,
             "Lenovo Legion 7S gen 6": false,
             "Lenovo Legion K510 Mini Pro": false,
@@ -1258,6 +1266,7 @@
             "Logitech G502 Proteus Spectrum Gaming Mouse": false,
             "Logitech G502 Wireless Gaming Mouse": false,
             "Logitech G502 Wireless Gaming Mouse (wired)": false,
+            "Logitech G502 X Plus (wired)": false,
             "Logitech G512": false,
             "Logitech G512 RGB": false,
             "Logitech G560 Lightsync Speaker": false,
@@ -1295,6 +1304,8 @@
             "Logitech X56 Rhino Hotas Joystick": false,
             "Logitech X56 Rhino Hotas Throttle": false,
             "Luxafor Flag": false,
+            "MNT Pocket Reform Keyboard": false,
+            "MNT Reform Keyboard": false,
             "MSI 3-Zone Laptop": false,
             "MSI GeForce GTX 1070 Gaming X": false,
             "MSI GeForce GTX 1660 Gaming X": false,
@@ -1552,6 +1563,8 @@
             "MSI Mystic Light MS_7E07": false,
             "MSI Mystic Light MS_7E09": false,
             "MSI Mystic Light MS_7E10": false,
+            "MSI Mystic Light MS_7E34": false,
+            "MSI Mystic Light MS_7E80": false,
             "MSI Mystic Light MS_7E81": false,
             "MSI Mystic Light MS_B926": false,
             "MSI Mystic Light X870": false,
@@ -1694,6 +1707,7 @@
             "Palit GeForce RTX 5060 Ti White OC 16GB": false,
             "Palit GeForce RTX 5070 GamingPro": false,
             "Palit GeForce RTX 5070 Ti GamingPro": false,
+            "Palit GeForce RTX 5080 GamingPro": false,
             "Palit GeForce RTX 5090 Gamerock": false,
             "Patriot Viper": false,
             "Patriot Viper Steel": false,
@@ -1834,6 +1848,8 @@
             "Razer Kraken Kitty V3 Pro (Wired)": false,
             "Razer Kraken Kitty V3 Pro (Wireless)": false,
             "Razer Kraken Ultimate": false,
+            "Razer Kraken V3": false,
+            "Razer Kraken V3 HyperSense": false,
             "Razer Kraken V3 X": false,
             "Razer Kraken V4 (Wired)": false,
             "Razer Kraken V4 (Wireless)": false,
@@ -1973,6 +1989,7 @@
             "Sapphire Radeon RX 9070 XT Pure": false,
             "Sapphire Radeon RX Vega 56/64 Nitro+": false,
             "Seagate Firecuda HDD": false,
+            "Sinowealth Keyboard": false,
             "Skyloong GK104 Pro": false,
             "Sony DualSense": false,
             "Sony DualSense Edge": false,
@@ -1997,6 +2014,8 @@
             "SteelSeries Apex 5": false,
             "SteelSeries Apex 7": false,
             "SteelSeries Apex 7 TKL": false,
+            "SteelSeries Apex 9 Mini": false,
+            "SteelSeries Apex 9 TKL": false,
             "SteelSeries Apex M750": false,
             "SteelSeries Apex Pro": false,
             "SteelSeries Apex Pro 3": false,
@@ -2102,6 +2121,7 @@
             "VSG Mintaka": false,
             "Valkyrie VK99": false,
             "Valkyrie VK99 Pro": false,
+            "ViewSonic Monitor XG270QC": false,
             "ViewSonic Monitor XG270QG": false,
             "ViewSonic Monitor XG271QG": false,
             "Winbond Gaming Keyboard": false,
@@ -2213,8 +2233,23 @@
             "Z370 AORUS Ultra Gaming-CF"
         ]
     },
+    "LogManager": {
+        "log_file": false
+    },
+    "Plugins": {
+        "plugins": [
+            {
+                "description": "Provides a variety of custom effects",
+                "enabled": true,
+                "name": "OpenRGB Effects Plugin"
+            }
+        ]
+    },
     "Server": {
         "legacy_workaround": false
+    },
+    "Theme": {
+        "theme": "Dark"
     },
     "UserInterface": {
         "RunZoneChecks": false,
@@ -2244,8 +2279,8 @@
             "x": 0,
             "y": 0
         },
-        "greyscale_tray_icon": false,
+        "greyscale_tray_icon": true,
         "language": "default",
-        "minimize_on_close": false
+        "minimize_on_close": true
     }
 }

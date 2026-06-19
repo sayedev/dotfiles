@@ -5,6 +5,7 @@
     "spacing": 0,
     "padding": 50,
     "modules-left": [
+        "custom/vpn",
         "tray",
         "hyprland/workspaces"
     ],
@@ -15,7 +16,10 @@
         "wlr/taskbar",
         "pulseaudio",
         "bluetooth",
-        "network",
+        "network#ethernet",
+        "network#wifi",
+        "temperature#cpu",
+        "temperature#gpu",
         "memory",
         "hyprland/language",
         "custom/power",
@@ -72,17 +76,31 @@
         "menu": "on-click",
         "menu-file": "~/.config/waybar/power_menu.xml",
         "menu-actions": {
-            "shutdown": "shutdown -P now",
-            "reboot": "reboot",
-            "lock": "hyprlock"
+            "shutdown": "wlogout",
+            "reboot": "wlogout"
         }
     },
-    "network": {
+    "custom/vpn": {
+        "exec": "~/.config/waybar/vpn-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "protonvpn status"
+    },
+    "network#ethernet": {
+        "interface": "enp*",
         "format-ethernet": "<span color='#BF1A1A'>󰴽 </span>Ethernet",
+        "format-disconnected": "",
+        "tooltip": false,
+        "interval": 1,
+        "on-click": "nm-connection-editor"
+    },
+    "network#wifi": {
+        "interface": "wl*",
+        "format": "",
         "format-wifi": "<span color='#BF1A1A'>󰤨 </span>{essid}",
-        "format-linked": "<span color='#FFE08F'>󱘖 </span>{essid}",
-        "format-disconnected": "<span color='#FFE08F'> </span>",
-        "format-disabled": "<span color='#FFE08F'> </span>",
+        "format-disconnected": "",
+        "format-disabled": "",
         "tooltip": false,
         "interval": 1,
         "on-click": "nm-connection-editor"
@@ -119,6 +137,24 @@
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
         "on-click": "blueberry"
+    },
+    "temperature#cpu": {
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 90,
+        "format": "<span color='#BF1A1A'> </span>{temperatureC}°",
+        "format-critical": "<span color='#FFE08F'> </span>{temperatureC}°",
+        "tooltip": false,
+        "interval": 5
+    },
+    "temperature#gpu": {
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:00.0/0000:03:00.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 90,
+        "format": "<span color='#BF1A1A'>󱒃 </span>{temperatureC}°",
+        "format-critical": "<span color='#FFE08F'>󱒃 </span>{temperatureC}°",
+        "tooltip": false,
+        "interval": 5
     },
     "memory": {
         "format": "<span color='#BF1A1A'> </span> {used}G",
