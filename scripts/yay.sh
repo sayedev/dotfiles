@@ -16,6 +16,7 @@ function install_yay
         librewolf-bin \
         kora-icon-theme \
         selectdefaultapplication-fork-git \
+        postman-bin \
         themix-full-git; or begin
         print_error "[yay] can't install packages."
         exit 1

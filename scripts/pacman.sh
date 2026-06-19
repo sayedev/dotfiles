@@ -35,6 +35,9 @@ function install_pacman
         qt6ct \
         gnome-keyring \
         libsecret \
+        gamemode \
+        gnome-calculator \
+        wlogout \
         mpv; or begin
         print_error "[pacman] can't install packages."
         exit 1

@@ -76,8 +76,7 @@
         "menu": "on-click",
         "menu-file": "~/.config/waybar/power_menu.xml",
         "menu-actions": {
-            "shutdown": "wlogout",
-            "reboot": "wlogout"
+            "shutdown": "wlogout -b 2"
         }
     },
     "custom/vpn": {

@@ -8,7 +8,9 @@ function deploy_config
     cp -R $dotfiles_dir/rofi ~/.config/rofi
     cp -R $dotfiles_dir/swaync ~/.config/swaync
     cp -R $dotfiles_dir/waybar ~/.config/waybar
+    cp -R $dotfiles_dir/wlogout ~/.config/wlogout
     cp -R $dotfiles_dir/OpenRGB ~/.config/OpenRGB
+    cp $dotfiles_dir/gamemode/gamemode.ini ~/.config/gamemode.ini
     cp -R $dotfiles_dir/themes/. ~/.themes
 
     cp $dotfiles_dir/apps/OpenRGB.AppImage $HOME/OpenRGB.AppImage
