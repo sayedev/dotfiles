@@ -35,7 +35,6 @@ function install_pacman
         qt6ct \
         gnome-keyring \
         libsecret \
-        gamemode \
         gnome-calculator \
         wlogout \
         mpv; or begin

@@ -6,7 +6,6 @@ function install_yay
         hyprshade \
         hyprshot \
         hypr-cycle \
-        greetd-regreet-git \
         1password \
         cursor-bin \
         brave-bin \

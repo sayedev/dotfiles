@@ -10,7 +10,6 @@ function deploy_config
     cp -R $dotfiles_dir/waybar ~/.config/waybar
     cp -R $dotfiles_dir/wlogout ~/.config/wlogout
     cp -R $dotfiles_dir/OpenRGB ~/.config/OpenRGB
-    cp $dotfiles_dir/gamemode/gamemode.ini ~/.config/gamemode.ini
     cp -R $dotfiles_dir/themes/. ~/.themes
 
     cp $dotfiles_dir/apps/OpenRGB.AppImage $HOME/OpenRGB.AppImage
@@ -25,11 +24,6 @@ function deploy_config
     mkdir -p ~/.icons
     cp -R $dotfiles_dir/cursors/Bibata-Modern-Ice ~/.icons/
 
-    sudo cp -R $dotfiles_dir/etc/greetd/. /etc/greetd
-
     sudo mkdir -p /etc/udev/rules.d
     sudo cp $dotfiles_dir/etc/udev/rules.d/72-ds4tm.rules /etc/udev/rules.d/
-
-    sudo mkdir -p /usr/share/wallpapers
-    sudo cp $dotfiles_dir/hypr/wallpapers/red-j.jpg /usr/share/wallpapers/
 end
