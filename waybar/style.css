@@ -3,7 +3,7 @@
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   border: none;
 }
 
@@ -31,16 +31,11 @@
 #clock,
 #temperature,
 #language,
-#privacy,
-#custom-power {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 0;
-  border-radius: 15px;
-  padding: 4px 12px;
-  margin-top: 3px;
-  margin-bottom: 0;
-  margin-left: 3px;
-  margin-right: 3px;
+#privacy {
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin: 4px 3px;
 }
 
 #privacy {
@@ -64,7 +59,7 @@
 #temperature:hover,
 #language:hover,
 #custom-power:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* WORKSPACES */
@@ -73,8 +68,9 @@
   background: transparent;
   border: none;
   color: #ffffff;
-  padding: 4px 12px;
-  margin: 0 4px;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin: 0 2px;
 }
 
 #taskbar.empty {
@@ -83,69 +79,48 @@
 
 #taskbar button:hover,
 #workspaces button:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
 }
-
-
-/* PRIVACY */
-#privacy {
-  /* Keep the module bubble consistent, but tighten inner spacing */
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-#privacy-item {
-  background-color: #FFFFFF;
-  /* white background */
-  color: #BF1A1A;
-  /* red icon/text */
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 18px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-/* Force all privacy types to the alert red for consistency */
-#privacy-item.screenshare,
-#privacy-item.audio-in,
-#privacy-item.audio-out {
-  background-color: #FFFFFF;
-  color: #BF1A1A;
-}
-
-/* Ensure symbolic icons inside the privacy badge inherit red color */
-#privacy-item image,
-#privacy-item .icon,
-#privacy-item * {
-  color: #BF1A1A;
-}
-
 
 #workspaces button.active {
   background: #BF1A1A;
 }
 
 #taskbar button.active {
-  border-bottom: 3px solid #BF1A1A;
+  border-bottom: 2px solid #BF1A1A;
+}
+
+/* PRIVACY */
+#privacy {
+  padding: 2px 8px;
+}
+
+#privacy-item,
+#privacy-item.screenshare,
+#privacy-item.audio-in,
+#privacy-item.audio-out {
+  background-color: #FFFFFF;
+  color: #BF1A1A;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+#privacy-item image,
+#privacy-item .icon,
+#privacy-item * {
+  color: #BF1A1A;
 }
 
 /* TOOLTIPS */
 tooltip {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 2px solid #BF1A1A;
-  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #BF1A1A;
+  border-radius: 8px;
   padding: 8px;
 }
 
 tooltip label {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   font-family: "JetBrainsMono Nerd Font";
-}
-
-/* CLOCK CALENDAR */
-#clock tooltip {
-  background-color: rgba(0, 0, 0, 0.75);
-  border: 2px solid #BF1A1A;
-  border-radius: 12px;
-  padding: 12px;
 }

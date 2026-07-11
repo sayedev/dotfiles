@@ -30,6 +30,8 @@ function install_pacman
         obs-studio \
         network-manager-applet \
         qt6ct \
+        adwaita-qt6 \
+        gnome-themes-extra \
         gnome-keyring \
         libsecret \
         gnome-calculator \

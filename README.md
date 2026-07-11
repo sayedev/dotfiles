@@ -8,9 +8,7 @@
 
 
 ```bash
-git clone https://github.com/sayedev/dotfiles.git ~/.cache/dotfiles
-~/.cache/dotfiles/SETUP.sh
-
+git clone -b dev https://github.com/sayedev/dotfiles.git ~/.cache/dotfiles && ~/.cache/dotfiles/SETUP.sh
 ```
 
 
