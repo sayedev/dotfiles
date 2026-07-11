@@ -1,6 +1,3 @@
-source (dirname (status --current-filename))/_.sh
-
-
 function install_yay
     yay -S --needed --noconfirm \
         hyprshade \

@@ -10,15 +10,12 @@
 # Shell: fish                                                                 #
 ###############################################################################
 
-source (dirname (status --current-filename))/scripts/_.sh
-source (dirname (status --current-filename))/scripts/pacman.sh
-source (dirname (status --current-filename))/scripts/yay.sh
-source (dirname (status --current-filename))/scripts/cleanup.sh
-source (dirname (status --current-filename))/scripts/move_files.sh
-source (dirname (status --current-filename))/scripts/rgb.sh
-source (dirname (status --current-filename))/scripts/fish.sh
-source (dirname (status --current-filename))/scripts/remove.sh
-source (dirname (status --current-filename))/scripts/systemctl.sh
+set -g DOTFILES_DIR (dirname (status --current-filename))
+
+# _.sh defines the shared colors/helpers and must be sourced first.
+for module in _ pacman yay cleanup move_files rgb fish remove systemctl
+    source $DOTFILES_DIR/scripts/$module.sh
+end
 
 
 

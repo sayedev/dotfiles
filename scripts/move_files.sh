@@ -1,6 +1,5 @@
 function deploy_config
-    set script_dir (dirname (status --current-filename))
-    set dotfiles_dir (dirname $script_dir)
+    set dotfiles_dir $DOTFILES_DIR
 
     mkdir -p ~/.config
     mkdir -p ~/.themes

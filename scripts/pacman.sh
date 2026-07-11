@@ -1,6 +1,3 @@
-source (dirname (status --current-filename))/_.sh
-
-
 function install_pacman
     sudo pacman -S --needed --noconfirm \
         nm-connection-editor \
