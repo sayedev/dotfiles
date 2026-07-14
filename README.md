@@ -35,7 +35,8 @@ tooltip. Left-click opens `nm-connection-editor`.
 The `vpn` setup step wires it up automatically:
 
 1. copies `vpn-status.sh` to `~/.config/noctalia/scripts/`,
-2. installs the plugin to `~/.local/share/noctalia/plugins/diver/vpn/`,
+2. installs the plugin to `~/.local/share/noctalia/plugins/vpn/` (Noctalia's local
+   source scans one level deep; the `diver/vpn` id lives in `plugin.toml`),
 3. drops `vpn-widget.toml` into `~/.config/noctalia/` (aliases the widget as `vpn`),
 4. runs `install-vpn-widget.py`, which enables the plugin in `config.toml` and
    inserts `"vpn"` into your active bar — editing the layer that actually wins

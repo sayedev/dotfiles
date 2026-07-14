@@ -15,8 +15,12 @@ function setup_vpn
     cp $dotfiles_dir/noctalia/vpn-status.sh ~/.config/noctalia/scripts/vpn-status.sh
     chmod +x ~/.config/noctalia/scripts/vpn-status.sh
 
-    # Bar-widget plugin (Noctalia discovers plugins under this dir as a local source).
-    set plugin_dir ~/.local/share/noctalia/plugins/diver/vpn
+    # Bar-widget plugin. Noctalia's local source scans ONE level deep
+    # (~/.local/share/noctalia/plugins/<dir>/plugin.toml); the "diver/vpn" id comes
+    # from plugin.toml, so the folder is just "vpn". A nested diver/vpn/ path is
+    # never discovered ("no plugin 'diver/vpn' found in any source").
+    set plugin_dir ~/.local/share/noctalia/plugins/vpn
+    rm -rf ~/.local/share/noctalia/plugins/diver  # drop the old, undiscoverable layout
     mkdir -p $plugin_dir
     cp $dotfiles_dir/noctalia/plugins/vpn/plugin.toml $plugin_dir/
     cp $dotfiles_dir/noctalia/plugins/vpn/vpn.luau $plugin_dir/
