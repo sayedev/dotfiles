@@ -32,3 +32,9 @@ end
 function print_error
     echo -e "$RED""[ERROR]$NC $argv"
 end
+
+# Reload udev rules and re-apply them to present devices.
+function reload_udev
+    sudo udevadm control --reload-rules
+    sudo udevadm trigger
+end

@@ -6,7 +6,8 @@
 #                                                                             #
 # The desktop is now handled by Noctalia. This branch only carries the bits   #
 # Noctalia does not: OpenRGB (lighting), the PS5/DualSense udev rule, and a    #
-# ProtonVPN status widget for the Noctalia bar.                               #
+# ProtonVPN status widget for the Noctalia bar. Each script under scripts/     #
+# owns one category end-to-end (deps + config + permissions).                 #
 #                                                                             #
 # OS: CachyOS / Arch Linux                                                    #
 # Shell: fish                                                                 #
@@ -14,34 +15,28 @@
 
 set -g DOTFILES_DIR (dirname (status --current-filename))
 
-# _.sh defines the shared colors/helpers and must be sourced first.
-for module in _ packages deploy rgb services
+# lib.sh defines the shared colors/helpers and must be sourced first.
+for module in lib openrgb controller vpn
     source $DOTFILES_DIR/scripts/$module.sh
 end
 
 
 ###############################################################################
-print_header "INSTALLING PACKAGES"
+print_header "OPENRGB"
 ###############################################################################
-install_packages
+setup_openrgb
 
 
 ###############################################################################
-print_header "DEPLOYING OPENRGB + VPN WIDGET"
+print_header "PS5 CONTROLLER"
 ###############################################################################
-deploy_config
+setup_controller
 
 
 ###############################################################################
-print_header "SETTING UP RGB SUPPORT"
+print_header "NOCTALIA VPN WIDGET"
 ###############################################################################
-install_rgb
-
-
-###############################################################################
-print_header "CONFIGURING GROUPS"
-###############################################################################
-setup_services
+setup_vpn
 
 
 ###############################################################################
