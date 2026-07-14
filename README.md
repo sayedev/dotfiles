@@ -19,9 +19,9 @@
 git clone -b minimal https://github.com/sayedev/dotfiles.git ~/.cache/dotfiles && ~/.cache/dotfiles/SETUP.sh
 ```
 
-`SETUP.sh` installs `i2c-tools` + `curl`, extracts OpenRGB to `~/OpenRGB`,
-deploys the OpenRGB profile, installs the udev rules, copies the VPN script to
-`~/.config/noctalia/scripts/`, and adds you to the `plugdev` group.
+`SETUP.sh` extracts OpenRGB to `~/OpenRGB`, deploys the OpenRGB profile, installs
+the udev rules, adds you to the `plugdev` group, and sets up the VPN widget end
+to end (script + definition + bar placement).
 
 ## Noctalia VPN widget
 
@@ -29,11 +29,21 @@ Noctalia has no native VPN module, so the indicator rides on the `custom_button`
 widget in dynamic-text mode: it runs `vpn-status.sh` every few seconds and
 renders the JSON it prints (label, glyph, theme color, tooltip).
 
-To enable it, merge `noctalia/vpn-widget.toml` into
-`~/.config/noctalia/config.toml` (add `"vpn"` to a bar section), then:
+The `vpn` step wires this up automatically:
+
+1. copies `vpn-status.sh` to `~/.config/noctalia/scripts/`,
+2. drops the widget definition (`vpn-widget.toml`) into `~/.config/noctalia/`,
+3. runs `install-vpn-widget.py`, which inserts `"vpn"` into your active bar —
+   editing the layer that actually wins (GUI state `settings.toml` if it defines
+   the bar, otherwise your hand-written config) while preserving formatting,
+4. reloads Noctalia if it's running.
+
+If no bar layout is found in your files (bar uses Noctalia's built-in defaults),
+the widget is still installed — add it from **Settings → Bar → Bar Widgets**.
+To re-run just the placement step later:
 
 ```bash
-noctalia msg config-reload
+python3 ~/.cache/dotfiles/noctalia/install-vpn-widget.py && noctalia msg config-reload
 ```
 
 State → glyph / color:
