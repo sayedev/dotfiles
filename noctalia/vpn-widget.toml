@@ -1,0 +1,32 @@
+# ProtonVPN status widget for Noctalia (v5+)
+# ---------------------------------------------------------------------------
+# Noctalia has no native VPN widget, so this reuses the `custom_button` widget
+# in "dynamic text" mode: it runs vpn-status.sh on an interval and renders the
+# JSON it prints (label + glyph + theme color + tooltip).
+#
+# Merge the two blocks below into ~/.config/noctalia/config.toml.
+# SETUP.sh already copies vpn-status.sh to ~/.config/noctalia/scripts/.
+# After editing config.toml, reload with:  noctalia msg config-reload
+#
+# Docs: https://docs.noctalia.dev/v5/bar/widgets/  (see: custom_button)
+
+# 1) Define the widget instance.
+[widget.vpn]
+type          = "custom_button"
+parseJson     = true                                    # read {text,icon,iconColor,textColor,tooltip}
+textCommand   = "$HOME/.config/noctalia/scripts/vpn-status.sh"
+textIntervalMs = 5000                                   # refresh cadence (ms)
+showIcon      = true
+showTextTooltip = true                                  # show the JSON "tooltip" on hover
+leftClickExec = "nm-connection-editor"                  # click to manage connections
+hideMode      = "alwaysExpanded"
+
+# Give the label enough room for server names (default is 10 chars, with marquee).
+[widget.vpn.maxTextLength]
+horizontal = 14
+vertical   = 6
+
+# 2) Add "vpn" to whichever bar/section you want. Example: top bar, right side.
+#    (Adjust to match your existing [bar.*] layout instead of overwriting it.)
+[bar.main]
+right = ["vpn", "tray", "clock"]

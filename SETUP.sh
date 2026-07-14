@@ -1,45 +1,33 @@
 #!/usr/bin/env fish
 
 ###############################################################################
-#                         DOTFILES INSTALLATION SCRIPT                        #
+#                        DOTFILES INSTALLATION SCRIPT                         #
+#                                (minimal)                                    #
 #                                                                             #
-# This script automates the installation and configuration of a custom       #
-# Hyprland desktop environment with all necessary dependencies and configs.  #
+# The desktop is now handled by Noctalia. This branch only carries the bits   #
+# Noctalia does not: OpenRGB (lighting), the PS5/DualSense udev rule, and a    #
+# ProtonVPN status widget for the Noctalia bar.                               #
 #                                                                             #
-# OS: Arch Linux                                                              #
+# OS: CachyOS / Arch Linux                                                    #
 # Shell: fish                                                                 #
 ###############################################################################
 
 set -g DOTFILES_DIR (dirname (status --current-filename))
 
 # _.sh defines the shared colors/helpers and must be sourced first.
-for module in _ pacman yay cleanup move_files rgb fish remove systemctl
+for module in _ packages deploy rgb services
     source $DOTFILES_DIR/scripts/$module.sh
 end
 
 
-
 ###############################################################################
-print_header "RANKING MIRRORS"
+print_header "INSTALLING PACKAGES"
 ###############################################################################
-sudo cachyos-rate-mirrors
-sudo pacman -Syy
+install_packages
 
 
 ###############################################################################
-print_header "INSTALLING PACMAN PACKAGES"
-###############################################################################
-install_pacman
-
-
-###############################################################################
-print_header "INSTALLING AUR PACKAGES"
-###############################################################################
-install_yay
-
-
-###############################################################################
-print_header "DEPLOYING CONFIGURATION FILES"
+print_header "DEPLOYING OPENRGB + VPN WIDGET"
 ###############################################################################
 deploy_config
 
@@ -51,40 +39,14 @@ install_rgb
 
 
 ###############################################################################
-print_header "CONFIGURING FISH SHELL"
-###############################################################################
-customize_fish
-
-
-###############################################################################
-print_header "REMOVING UNWANTED SOFTWARE"
-###############################################################################
-remove_software
-
-
-###############################################################################
-print_header "CLEANING UP"
-###############################################################################
-cleanup_installs
-
-
-###############################################################################
-print_header "ENABLING SYSTEM SERVICES"
+print_header "CONFIGURING GROUPS"
 ###############################################################################
 setup_services
 
 
-##########################################################################
-print_header "REBOOT REQUIRED"
-##########################################################################
-
-read -P (printf "$YELLOW""Reboot now? (Y/n): $NC") -n 1 response
-echo ""
-set response (string lower -- $response)
-
-if test -z "$response"; or test "$response" = "y"
-    echo -e "$CYAN""Rebooting system...$NC"
-    sudo reboot
-else
-    echo -e "$GREEN""Reboot cancelled. Please reboot manually when ready.$NC"
-end
+###############################################################################
+print_header "DONE"
+###############################################################################
+print_info "Log out/in (or reboot) so the plugdev group and udev rules apply."
+print_info "Add the VPN widget: merge noctalia/vpn-widget.toml into"
+print_info "~/.config/noctalia/config.toml, then run: noctalia msg config-reload"
