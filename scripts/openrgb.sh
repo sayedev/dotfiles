@@ -13,19 +13,30 @@ function setup_openrgb
         echo "i2c-dev" | sudo tee /etc/modules-load.d/i2c.conf > /dev/null
     end
 
-    # Profile / settings.
+    # Profile: deploy once. OpenRGB rewrites this file when you save from the
+    # app, so on re-runs we keep your version instead of clobbering it.
+    # (Delete ~/.config/OpenRGB/OpenRGB.json to redeploy the bundled profile.)
     mkdir -p ~/.config/OpenRGB
-    cp $dotfiles_dir/OpenRGB/OpenRGB.json ~/.config/OpenRGB/
+    if test -f ~/.config/OpenRGB/OpenRGB.json
+        print_info "[openrgb] profile exists; keeping ~/.config/OpenRGB/OpenRGB.json"
+    else
+        cp $dotfiles_dir/OpenRGB/OpenRGB.json ~/.config/OpenRGB/
+    end
 
-    # Extract the bundled OpenRGB AppImage into ~/OpenRGB.
-    cp $dotfiles_dir/apps/OpenRGB.AppImage $HOME/OpenRGB.AppImage
-    chmod +x $HOME/OpenRGB.AppImage
-    rm -rf $HOME/OpenRGB $HOME/squashfs-root
-    pushd $HOME
-    ./OpenRGB.AppImage --appimage-extract >/dev/null
-    popd
-    mv $HOME/squashfs-root $HOME/OpenRGB
-    rm $HOME/OpenRGB.AppImage
+    # Extract the bundled AppImage into ~/OpenRGB once; skip if already there.
+    # (Delete ~/OpenRGB to force a fresh extraction from the bundled AppImage.)
+    if test -e $HOME/OpenRGB/AppRun
+        print_info "[openrgb] ~/OpenRGB already extracted; skipping"
+    else
+        cp $dotfiles_dir/apps/OpenRGB.AppImage $HOME/OpenRGB.AppImage
+        chmod +x $HOME/OpenRGB.AppImage
+        rm -rf $HOME/OpenRGB $HOME/squashfs-root
+        pushd $HOME
+        ./OpenRGB.AppImage --appimage-extract >/dev/null
+        popd
+        mv $HOME/squashfs-root $HOME/OpenRGB
+        rm $HOME/OpenRGB.AppImage
+    end
 
     # Device access: udev rule hands nodes to the plugdev group.
     if not getent group plugdev > /dev/null

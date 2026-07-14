@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Place the "vpn" widget on the active Noctalia bar.
+"""Enable the ProtonVPN plugin and place its widget on the active Noctalia bar.
 
-The widget *definition* is shipped as a drop-in (vpn-widget.toml). This script
-only handles bar placement: it inserts "vpn" into the correct lane of the layer
-that actually wins.
+The widget itself comes from the "diver/vpn" plugin; vpn-widget.toml aliases it
+as "vpn". This script does two things, both format-preserving:
+
+  1. Ensures "diver/vpn" is in [plugins].enabled in config.toml (declarative
+     enable, so it survives without the GUI).
+  2. Inserts "vpn" into the correct bar lane of the layer that actually wins.
 
 Noctalia merges config in this order (later wins):
   1. built-in defaults
@@ -11,7 +14,7 @@ Noctalia merges config in this order (later wins):
   3. GUI state in ~/.local/state/noctalia/settings.toml
 
 So if the GUI state defines the bar, editing config.toml would be ignored; we
-edit whichever layer defines the bar last. Formatting/comments are preserved.
+edit whichever layer defines the bar last.
 """
 import os
 import sys
@@ -22,6 +25,7 @@ try:
 except ModuleNotFoundError:
     sys.exit("error: python-tomlkit is not installed (pacman -S python-tomlkit)")
 
+PLUGIN_ID = "diver/vpn"
 WIDGET = "vpn"
 LANES = ("end", "center", "start")
 
@@ -62,7 +66,32 @@ def already_present(table) -> bool:
     return any(WIDGET in list(table.get(lane, [])) for lane in LANES)
 
 
-def main() -> int:
+def enable_plugin() -> None:
+    """Ensure PLUGIN_ID is in [plugins].enabled in config.toml (append, never replace)."""
+    path = config_dir() / "config.toml"
+    doc = tomlkit.parse(path.read_text()) if path.exists() else tomlkit.document()
+
+    plugins = doc.get("plugins")
+    if not hasattr(plugins, "get"):
+        plugins = tomlkit.table()
+        doc["plugins"] = plugins
+
+    enabled = plugins.get("enabled")
+    if enabled is None:
+        enabled = tomlkit.array()
+        plugins["enabled"] = enabled
+
+    if PLUGIN_ID in list(enabled):
+        print(f"Plugin '{PLUGIN_ID}' already enabled ({path}).")
+        return
+
+    enabled.append(PLUGIN_ID)
+    config_dir().mkdir(parents=True, exist_ok=True)
+    path.write_text(tomlkit.dumps(doc))
+    print(f"Enabled plugin '{PLUGIN_ID}' in {path}")
+
+
+def place_widget() -> int:
     # Merge order low -> high priority (last wins).
     ordered = sorted(config_dir().glob("*.toml"))
     if state_settings().exists():
@@ -107,6 +136,11 @@ def main() -> int:
     path.write_text(tomlkit.dumps(doc))
     print(f"Added '{WIDGET}' to [bar.{target}].{lane} in {path}")
     return 0
+
+
+def main() -> int:
+    enable_plugin()
+    return place_widget()
 
 
 if __name__ == "__main__":

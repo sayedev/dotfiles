@@ -1,26 +1,12 @@
-# ProtonVPN status widget definition for Noctalia (v5+)
-# ---------------------------------------------------------------------------
-# Noctalia has no native VPN widget, so this reuses the `custom_button` widget
-# in "dynamic text" mode: it runs vpn-status.sh on an interval and renders the
-# JSON it prints (label + glyph + theme color + tooltip).
+# Alias the ProtonVPN plugin bar widget as "vpn" so bars can reference it by a
+# short name. The widget itself is provided by the "diver/vpn" plugin (see
+# noctalia/plugins/vpn/); SETUP.sh installs and enables it, then adds "vpn" to
+# your active bar automatically.
 #
-# This file is a drop-in: Noctalia merges every *.toml in ~/.config/noctalia/,
-# so it defines the widget without touching your config.toml. SETUP.sh copies
-# it there and then adds "vpn" to your active bar automatically.
+# This is a drop-in: Noctalia merges every *.toml in ~/.config/noctalia/, so it
+# takes effect without editing your config.toml.
 #
-# Docs: https://docs.noctalia.dev/v5/bar/widgets/  (see: custom_button)
+# Docs: https://docs.noctalia.dev/v5/bar/widgets/  (see: Plugin widgets)
 
 [widget.vpn]
-type            = "custom_button"
-parseJson       = true                                   # read {text,icon,iconColor,textColor,tooltip}
-textCommand     = "$HOME/.config/noctalia/scripts/vpn-status.sh"
-textIntervalMs  = 5000                                    # refresh cadence (ms)
-showIcon        = true
-showTextTooltip = true                                    # show the JSON "tooltip" on hover
-leftClickExec   = "nm-connection-editor"                  # click to manage connections
-hideMode        = "alwaysExpanded"
-
-# Give the label room for server names (default is 10 chars, with marquee).
-[widget.vpn.maxTextLength]
-horizontal = 14
-vertical   = 6
+type = "diver/vpn:status"
