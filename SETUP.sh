@@ -5,9 +5,9 @@
 #                                (minimal)                                    #
 #                                                                             #
 # The desktop is now handled by Noctalia. This branch only carries the bits   #
-# Noctalia does not: OpenRGB (lighting), the PS5/DualSense udev rule, and a    #
-# ProtonVPN status widget for the Noctalia bar. Each script under scripts/     #
-# owns one category end-to-end (deps + config + permissions).                 #
+# Noctalia does not: OpenRGB (lighting), the PS5/DualSense udev rule, and     #
+# the pacman/yay package lists. Each script under scripts/ owns one category  #
+# end-to-end (deps + config + permissions).                                  #
 #                                                                             #
 # OS: CachyOS / Arch Linux                                                    #
 # Shell: fish                                                                 #
@@ -16,7 +16,7 @@
 set -g DOTFILES_DIR (dirname (status --current-filename))
 
 # lib.sh defines the shared colors/helpers and must be sourced first.
-for module in lib openrgb controller vpn
+for module in lib openrgb controller pacman yay
     source $DOTFILES_DIR/scripts/$module.sh
 end
 
@@ -34,14 +34,17 @@ setup_controller
 
 
 ###############################################################################
-print_header "NOCTALIA VPN WIDGET"
+print_header "PACMAN PACKAGES"
 ###############################################################################
-setup_vpn
+setup_pacman_packages
+
+
+###############################################################################
+print_header "YAY PACKAGES"
+###############################################################################
+setup_yay_packages
 
 
 ###############################################################################
 print_header "DONE"
 ###############################################################################
-print_info "Log out/in (or reboot) so the plugdev group and udev rules apply."
-print_info "Add the VPN widget: merge noctalia/vpn-widget.toml into"
-print_info "~/.config/noctalia/config.toml, then run: noctalia msg config-reload"
